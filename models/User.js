@@ -1,5 +1,9 @@
+const bcrypt = require("bcrypt");
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+
+// Use native promises
+    mongoose.Promise = global.Promise;
 
 // User Schema
 const UserSchema = new Schema({
@@ -15,15 +19,34 @@ const UserSchema = new Schema({
 
 const User = module.exports = mongoose.model('User', UserSchema);
 
-module.exports.registerUser = function (newUser, callback) {
-  User.findOne({ username: newUser.username }, (err, userAlreadyRegistered) => {
+module.exports.register = function (user, callback) {
+  User.findOne({ username: user.username }, (err, userAlreadyRegistered) => {
     if (err) {
       throw err; 
     } else if (userAlreadyRegistered) {
-      callback(null, true);
+      callback(null, null, 0, true);
     } else {
-      console.log('user is able to register');
-      callback(null, null, true);
+      bcrypt.genSalt(10, function(err, salt) {
+        bcrypt.hash(user.password, salt, function(err, hash) {
+          if (err) {
+            throw err;
+          } else {
+            user.password = hash;
+            user.save(callback);
+          }
+        });
+      });
     }
   });
 };
+
+module.exports.comparePasswords = function (passwordToCheck, hash, callback) {
+  bcrypt.compare(passwordToCheck, hash, function (err, res) {
+    callback(err, res);
+  });
+};
+
+module.exports.findByUsername = function (username, callback) {
+  const query = { username: username };
+  User.findOne( query, callback);
+}
