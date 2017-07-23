@@ -6,12 +6,12 @@ module.exports = (req, res) => {
     password: req.body.password
   });
 
-  User.registerUser(userToRegister, (err, alreadyRegistered, success) => {
+  User.register(userToRegister, (err, user, numAffected, alreadyRegistered) => {
     if (err) {
       res.json({ success: false, msg: 'Failed to register', status: 1 });
     } else if (alreadyRegistered) {
       res.json({ success: false, msg: 'Username already exists', status: 2 });
-    } else if (success) {
+    } else if (user) {
       res.json({ success: true, msg: 'Account registered', status: 0 });
     } else {
       res.json({ success: false, msg: 'Oops, something went wrong..', status: 3 });
