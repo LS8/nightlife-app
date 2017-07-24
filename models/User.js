@@ -14,6 +14,9 @@ const UserSchema = new Schema({
   password: {
     type: String,
     required: true
+  },
+  attending: {
+    type: [String]
   }
 });
 
@@ -49,4 +52,8 @@ module.exports.comparePasswords = function (passwordToCheck, hash, callback) {
 module.exports.findByUsername = function (username, callback) {
   const query = { username: username };
   User.findOne( query, callback);
+}
+
+module.exports.searchById = function (id, callback) {
+  User.findById(id, callback);
 }
