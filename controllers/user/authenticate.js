@@ -1,3 +1,4 @@
+const jwt = require('jsonwebtoken');
 const User = require('../../models/User');
 
 module.exports = (req, res) => {
@@ -14,7 +15,14 @@ module.exports = (req, res) => {
         if (err) {
           res.json({ success: false, msg: 'Error' });
         } else if (isMatch) {
-          res.json({ success: true, msg: 'Correct password' });
+          // create token
+          const token = jwt.sign(user, 'secret', { expiresIn: 604800 });
+          res.json({
+            success: true, msg: 'Correct password', token: `JWT ${token}`, user: {
+              id: user._id,
+              username: user.username
+            }
+          });
         } else if (!isMatch) {
           res.json({ success: false, msg: 'Wrong password' });
         } else {
