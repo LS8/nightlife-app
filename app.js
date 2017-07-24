@@ -2,9 +2,11 @@ const express = require('express');
 const app = express();
 
 // Add Middleware
+const passport = require('passport');
 const bodyparser = require('body-parser');
-app.use(bodyparser.json());
 const mongoose = require('mongoose');
+app.use(bodyparser.json());
+
 // Connect To Database
 mongoose.connect('mongodb://localhost:27017/nightlife', { useMongoClient: true });
 // On Connection
@@ -15,6 +17,11 @@ mongoose.connection.on('connected', () => {
 mongoose.connection.on('error', (err) => {
   console.log(`Database error: ${err}`);
 });
+
+// Passport Middleware
+app.use(passport.initialize());
+// app.use(passport.session());
+require('./config/auth').passportStrategy(passport);
 
 // Add Routes
 const user = require('./routes/user');
