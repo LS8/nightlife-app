@@ -27,6 +27,9 @@ require('./config/auth').passportStrategy(passport);
 const user = require('./routes/user');
 app.use('/api/user', user);
 
+const bar = require('./routes/bar');
+app.use('/api/bar', bar);
+
 // Index Route
 
 const port = process.env.PORT || 8080;
