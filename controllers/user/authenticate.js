@@ -10,7 +10,7 @@ module.exports = (req, res) => {
     if (err) {
       res.json({ success: false, msg: 'Error' });
     } else if (!user) {
-      res.json({ success: false, msg: 'Account not found' });
+      res.json({ success: false, status: 1, msg: 'Account not found' });
     } else {
       User.comparePasswords(password, user.password, (err, isMatch) => {
         if (err) {
@@ -19,13 +19,13 @@ module.exports = (req, res) => {
           // create token
           const token = jwt.sign(user, secret, { expiresIn: 604800 });
           res.json({
-            success: true, msg: 'Correct password', token: `JWT ${token}`, user: {
+            success: true, status:0, msg: 'Correct password', token: `JWT ${token}`, user: {
               id: user._id,
               username: user.username
             }
           });
         } else if (!isMatch) {
-          res.json({ success: false, msg: 'Wrong password' });
+          res.json({ success: false, status: 2, msg: 'Wrong password' });
         } else {
           res.json({ success: false, msg: 'Error' });
         }
