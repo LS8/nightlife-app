@@ -3,9 +3,12 @@ const app = express();
 
 // Add Middleware
 const passport = require('passport');
+const cors = require('cors');
 const bodyparser = require('body-parser');
 const mongoose = require('mongoose');
+
 app.use(bodyparser.json());
+app.use(cors());
 
 // Connect To Database
 mongoose.connect('mongodb://localhost:27017/nightlife', { useMongoClient: true });
