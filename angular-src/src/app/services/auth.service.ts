@@ -5,8 +5,10 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class AuthService {
-  private headers = new Headers({ 'Content-Type': 'application/json' });
-  private authUrl = 'http://localhost:8080/api/user';
+  // private user: Object;
+  private token;
+  private headers: Headers = new Headers({ 'Content-Type': 'application/json' });
+  private authUrl: string = 'http://localhost:8080/api/user';
 
   constructor(
     private http: Http
@@ -16,6 +18,12 @@ export class AuthService {
     const url = `${this.authUrl}/authenticate`
     return this.http.post(url, user, { headers: this.headers })
       .map(res => res.json());
+  }
+
+  storeToken(token, user: Object) {
+    localStorage.setItem('_token', token);
+    localStorage.setItem('_user', JSON.stringify(user));
+    this.token = token;
   }
 
 }
