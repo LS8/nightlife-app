@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,10 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private auth: AuthService, private router: Router) { }
 
   ngOnInit() {
     initNavbar();
+  }
+
+  onLogoutClick() {
+    this.auth.logOut();
+    this.router.navigate(['']);
   }
 
 }
@@ -20,7 +27,7 @@ function initNavbar() {
   // Check if there are any nav burgers
   if ($navbarBurgers.length > 0) {
     // Add a click event on each of them
-    $navbarBurgers.forEach(function ($el) {
+    $navbarBurgers.forEach(function($el) {
       $el.addEventListener('click', () => {
         // Get the target from the "data-target" attribute
         var target = $el.dataset.target;
