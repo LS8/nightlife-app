@@ -17,10 +17,16 @@
       </a>
     </div>
     <div class="navbar-end">
-      <a class="navbar-item" routerLink="/login" routerLinkActive="link-active" [routerLinkActiveOptions]="{exact: true}">
+      <a *ngIf="auth.loggedIn()" class="navbar-item" routerLink="/profile" routerLinkActive="link-active" [routerLinkActiveOptions]="{exact: true}">
+        Profile
+      </a>
+      <a *ngIf="!auth.loggedIn()" class="navbar-item" routerLink="/login" routerLinkActive="link-active" [routerLinkActiveOptions]="{exact: true}">
         Login
       </a>
-      <a class="navbar-item" routerLink="/register" routerLinkActive="link-active" [routerLinkActiveOptions]="{exact: true}">
+      <a *ngIf="auth.loggedIn()" class="navbar-item" (click)="onLogoutClick()">
+        Logout
+      </a>
+      <a *ngIf="!auth.loggedIn()" class="navbar-item" routerLink="/register" routerLinkActive="link-active" [routerLinkActiveOptions]="{exact: true}">
         Register
       </a>
     </div>
