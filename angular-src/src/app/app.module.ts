@@ -11,8 +11,11 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { RegisterComponent } from './components/register/register.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 import { AuthService } from './services/auth.service';
+import { LoggedInGuard } from './guards/logged-in.guard';
+import { LoggedOutGuard } from './guards/logged-out.guard';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,8 @@ import { AuthService } from './services/auth.service';
     NavbarComponent,
     LoginComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +35,8 @@ import { AuthService } from './services/auth.service';
   ],
   providers: [
     AuthService,
+    LoggedOutGuard,
+    LoggedInGuard
   ],
   bootstrap: [AppComponent]
 })
