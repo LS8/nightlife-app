@@ -1,3 +1,9 @@
-<p>
-  profile works!
-</p>
+<div class="container">
+  <h1>{{username}}'s Profile</h1>
+  <ul *ngIf="attendingEvents">
+    <li>test</li>
+    <li *ngFor="let event of attendingEvents">
+      Going to: {{event}}
+    </li>
+  </ul>
+</div>
