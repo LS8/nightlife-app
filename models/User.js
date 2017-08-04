@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 // Use native promises
-    mongoose.Promise = global.Promise;
+mongoose.Promise = global.Promise;
 
 // User Schema
 const UserSchema = new Schema({
@@ -25,7 +25,7 @@ const User = module.exports = mongoose.model('User', UserSchema);
 module.exports.register = function (user, callback) {
   User.findOne({ username: user.username }, (err, userAlreadyRegistered) => {
     if (err) {
-      throw err; 
+      throw err;
     } else if (userAlreadyRegistered) {
       callback(null, null, 0, true);
     } else {
@@ -56,4 +56,16 @@ module.exports.findByUsername = function (username, callback) {
 
 module.exports.searchById = function (id, callback) {
   User.findById(id, callback);
+}
+
+module.exports.attendBar = function (id, barName, callback) {
+  User.findById(id, (err, user) => {
+    if (err) throw err;
+    if (user) {
+      user.attending.push(barName);
+      user.save(callback);
+    } else {
+      callback(new Error("User not found"));
+    }
+  });
 }
