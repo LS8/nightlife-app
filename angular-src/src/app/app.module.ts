@@ -14,6 +14,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
 
 import { AuthService } from './services/auth.service';
+import { UserService } from './services/user.service';
 import { LoggedInGuard } from './guards/logged-in.guard';
 import { LoggedOutGuard } from './guards/logged-out.guard';
 
@@ -35,6 +36,7 @@ import { LoggedOutGuard } from './guards/logged-out.guard';
   ],
   providers: [
     AuthService,
+    UserService,
     LoggedOutGuard,
     LoggedInGuard
   ],
