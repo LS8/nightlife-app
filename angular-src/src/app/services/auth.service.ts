@@ -21,6 +21,12 @@ export class AuthService {
       .map(res => res.json());
   }
 
+  register(user: object) {
+    const url = `${this.authUrl}/register`
+    return this.http.post(url, user, { headers: this.headers })
+      .map(res => res.json());
+  }
+
   storeToken(token, user: Object) {
     localStorage.setItem('_token', token);
     localStorage.setItem('_user', JSON.stringify(user));
