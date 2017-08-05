@@ -5,23 +5,24 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class UserService {
-  private authUrl: string = 'http://localhost:8080/api/user';
-  private headers: Headers = new Headers({ 'Content-Type': 'application/json' });
+  private url: string = 'http://localhost:8080/api/user';
 
   constructor(private http: Http) { }
 
   getUserProfileData() {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
     let token = localStorage.getItem('_token');
-    this.headers.append('Authorization', token);
-    return this.http.get(this.authUrl, { headers: this.headers })
+    headers.append('Authorization', token);
+    return this.http.get(this.url, { headers: headers })
       .map(res => res.json());
   }
 
   addUserToBar() {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
     let token = localStorage.getItem('_token');
-    this.headers.append('Authorization', token);
+    headers.append('Authorization', token);
     // Todo Post: userId: mongoId, barName: barname string
-    return this.http.post(`${this.authUrl}/attend`, { headers: this.headers })
+    return this.http.post(`${this.url}/attend`, { headers: headers })
       .map(res => res.json());
   }
 }
