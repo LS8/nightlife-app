@@ -17,7 +17,8 @@
     "jsonwebtoken": "^7.4.1",
     "mongoose": "^4.11.3",
     "passport": "^0.3.2",
-    "passport-jwt": "^2.2.1"
+    "passport-jwt": "^2.2.1",
+    "request": "^2.81.0"
   },
   "devDependencies": {
     "@angular/cli": "^1.2.4"
