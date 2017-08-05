@@ -27,7 +27,8 @@ import { LoggedOutGuard } from './guards/logged-out.guard';
     LoginComponent,
     HomeComponent,
     RegisterComponent,
-    ProfileComponent
+    ProfileComponent,
+    LocationComponent
   ],
   imports: [
     BrowserModule,
