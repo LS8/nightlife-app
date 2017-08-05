@@ -12,9 +12,11 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { LocationComponent } from './components/location/location.component';
 
 import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
+import { BarService } from './services/bar.service';
 import { LoggedInGuard } from './guards/logged-in.guard';
 import { LoggedOutGuard } from './guards/logged-out.guard';
 
@@ -37,6 +39,7 @@ import { LoggedOutGuard } from './guards/logged-out.guard';
   providers: [
     AuthService,
     UserService,
+    BarService,
     LoggedOutGuard,
     LoggedInGuard
   ],
