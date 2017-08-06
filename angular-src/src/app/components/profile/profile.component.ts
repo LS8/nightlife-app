@@ -18,7 +18,6 @@ export class ProfileComponent implements OnInit {
         if (data.success) {
           this.username = data.user.username;
           this.attendingEvents = data.user.attending;
-          console.log(this.attendingEvents);
         }
         // Todo Error checkickg etc
         // Todo in express app: correctly add bar to attending array in user model
