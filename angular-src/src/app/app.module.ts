@@ -4,6 +4,7 @@ import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 
 import { FlashMessagesModule } from 'angular2-flash-messages';
+import { AgmCoreModule } from '@agm/core';
 
 import { Router } from './app.routing';
 import { AppComponent } from './app.component';
