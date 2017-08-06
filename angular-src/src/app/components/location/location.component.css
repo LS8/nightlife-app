@@ -1,0 +1,24 @@
+article
+{
+  background-color: #F7F7F7;
+  margin: 14px;
+  border: 1px solid transparent;
+  padding: 10px;
+  border-radius: 4px;
+  /* flex-wrap: nowrap; */
+  display: flex;
+  justify-content: space-between;
+}
+.media-content {
+  align-self: center;
+}
+
+@media screen and (max-width: 500px) {
+  article {
+    flex-flow: row wrap;
+  }
+  .media-left {
+    flex-basis: 100%;
+  }
+}
+
