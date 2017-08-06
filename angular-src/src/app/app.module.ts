@@ -14,6 +14,8 @@ import { HomeComponent } from './components/home/home.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { LocationComponent } from './components/location/location.component';
+import { MapComponent } from './components/map/map.component';
+import { LocationListitemComponent } from './components/location-listitem/location-listitem.component';
 
 import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
@@ -29,14 +31,17 @@ import { LoggedOutGuard } from './guards/logged-out.guard';
     HomeComponent,
     RegisterComponent,
     ProfileComponent,
-    LocationComponent
+    LocationComponent,
+    MapComponent,
+    LocationListitemComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     Router,
     HttpModule,
-    FlashMessagesModule
+    FlashMessagesModule,
+    AgmCoreModule.forRoot({ apiKey: 'AIzaSyDOcoSg52di_1ZCYzNunSWoxzeyQggx0hs' })
   ],
   providers: [
     AuthService,
