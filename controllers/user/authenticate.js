@@ -17,7 +17,7 @@ module.exports = (req, res) => {
           res.json({ success: false, msg: 'Error' });
         } else if (isMatch) {
           // create token
-          const token = jwt.sign(user._id, secret, { expiresIn: 604800 });
+          const token = jwt.sign(user, secret, { expiresIn: 604800 });
           res.json({
             success: true, status:0, msg: 'Correct password', token: `JWT ${token}`, user: {
               id: user._id,
