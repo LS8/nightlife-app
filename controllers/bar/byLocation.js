@@ -11,7 +11,7 @@ module.exports = (req, res) => {
   };
 
   let options = {
-    url: `https://api.yelp.com/v3/businesses/search?location=${location}&categories=nightlife`,
+    url: `https://api.yelp.com/v3/businesses/search?location=${location}&categories=nightlife&limit=10`,
     method: 'GET',
     headers: headers
   };
