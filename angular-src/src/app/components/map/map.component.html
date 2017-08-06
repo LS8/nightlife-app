@@ -1,0 +1,15 @@
+<div class="wrapper">
+  <div class="fixed">
+    <agm-map [scrollwheel]="false" [zoom]="14" [latitude]="lat" [longitude]="lng">
+      <agm-marker
+        *ngFor="let location of locations"
+        (markerClick)="onClick(location.coordinates)"
+        (mouseOver)="mouseOver(location.name)"
+        [latitude]="location.coordinates.latitude"
+        [longitude]="location.coordinates.longitude"
+        [title]="location.name">
+        <agm-info-window>{{location.name}}</agm-info-window>
+      </agm-marker>
+    </agm-map>
+  </div>
+</div>

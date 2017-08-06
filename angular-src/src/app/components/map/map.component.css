@@ -1,0 +1,26 @@
+.wrapper {
+  position: relative;
+}
+@media screen and (min-width: 769px) {
+  .fixed {
+    position: fixed;
+    width: 49%;
+    right: 12px;
+  }
+  agm-map {
+    width: 100%;
+  }
+}
+agm-map {
+  height: 70vh;
+  padding: inherit;
+  box-sizing: border-box;
+  background-color: gray;
+}
+agm-map /deep/ .agm-map-container-inner {
+  border-radius: 4px;
+  background-color: #F7F7F7;
+}
+agm-map /deep/ .gm-style-iw {
+  font-weight: bold;
+}
