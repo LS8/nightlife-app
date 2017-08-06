@@ -1,75 +1,14 @@
-        <!-- <div class="location-card"> -->
-        <!-- <img class="thumbnail" alt="Picture of the venue" src="{{location.image_url}}"/>  -->
-        <!-- <p>Mattis pellentesque id nibh tortor, id aliquet lectus proin nibh nisl, condimentum id venenatis a, condimentum vitae sapien pellentesque habitant.</p> -->
-        <!-- </div> -->
-<div class="columns">
+<div *ngIf="loaded" class="columns">
   <div class="column">
     <ul>
       <li *ngFor="let location of locations">
-  <article class="media columns">
-    <figure class="media-left column is-4 ">
-      <p class="image ">
-        <img class="thumbnail" src="{{location.image_url}}">
-      </p>
-    </figure>
-    <div class="media-content column is-8">
-      <div class="content">
-        <p>
-          <strong>{{location.name}}</strong> <small>{{location.phone}}</small>
-          <br>
-          Lorem ipsum dolor sem. Etiam finibus odio quis feugiat facilisis.
-        </p>
-      </div>
-      <nav class="level is-mobile">
-        <div class="level-left">
-          <a class="level-item">
-            <span class="icon is-small"><i class="fa fa-reply"></i></span>
-          </a>
-          <a class="level-item">
-            <span class="icon is-small"><i class="fa fa-retweet"></i></span>
-          </a>
-          <a class="level-item">
-            <span class="icon is-small"><i class="fa fa-heart"></i></span>
-          </a>
-        </div>
-      </nav>
-    </div>
-    </article>  
+        <app-location-listitem [location]="location"></app-location-listitem>
       </li>
     </ul>
   </div>
 
   <div class="column">
-    Second column
+    <app-map [locations]="locations" [lat]="region.latitude" [lng]="region.longitude"></app-map>
   </div>
 
-  <p *ngIf="!loaded">
-    location works!
-  </p>
-
-  <!-- <div class="card"> -->
-  <!-- <header class="card-header"> -->
-  <!-- <p class="card-header-title"> -->
-  <!-- Component -->
-  <!-- </p> -->
-  <!-- <a class="card-header-icon"> -->
-  <!-- <span class="icon"> -->
-  <!-- <i class="fa fa-angle-down"></i> -->
-  <!-- </span> -->
-  <!-- </a> -->
-  <!-- </header> -->
-  <!-- <div class="card-content"> -->
-  <!-- <div class="content"> -->
-  <!-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris. -->
-  <!-- <a>@bulmaio</a>. <a>#css</a> <a>#responsive</a> -->
-  <!-- <br> -->
-  <!-- <small>11:09 PM - 1 Jan 2016</small> -->
-  <!-- </div> -->
-  <!-- </div> -->
-  <!-- <footer class="card-footer"> -->
-  <!-- <a class="card-footer-item">Save</a> -->
-  <!-- <a class="card-footer-item">Edit</a> -->
-  <!-- <a class="card-footer-item">Delete</a> -->
-  <!-- </footer> -->
-  <!-- </div> -->
-
+</div>
