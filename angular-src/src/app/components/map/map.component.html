@@ -2,7 +2,7 @@
   <div class="fixed">
     <agm-map #gm [scrollwheel]="false" [zoom]="14" [latitude]="lat" [longitude]="lng">
       <agm-marker
-        *ngFor="let location of locations"
+        *ngFor="let location of locations; let i = index"
         (markerClick)="onClick(location.coordinates, infoWindow._id)"
         (mouseOver)="mouseOver(infoWindow)"
         (mouseOut)="mouseOut(infoWindow)"
@@ -10,7 +10,7 @@
         [longitude]="location.coordinates.longitude"
         (markerClick)="gm.lastOpen?.close(); gm.lastOpen = infoWindow">
         [title]="location.name">
-          <agm-info-window #infoWindow>{{location.name}}</agm-info-window>
+          <agm-info-window #infoWindow (infoWindowClose)="infoWindowClose(i)">{{location.name}}</agm-info-window>
       </agm-marker>
     </agm-map>
   </div>

@@ -36,4 +36,10 @@ export class MapComponent implements OnInit {
     }
   }
 
+  infoWindowClose(id) {
+    if (id == this.openedInfoWindowId) {
+      this.fixated = false;
+    }
+  }
+
 }
