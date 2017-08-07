@@ -6,6 +6,8 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements OnInit {
+  private fixated: boolean = false;
+  private openedInfoWindowId: number;
 
   @Input() locations: object[];
   @Input() lat: number;
@@ -17,13 +19,21 @@ export class MapComponent implements OnInit {
   ngOnInit() {
   }
 
-  onClick(markerCoords) {
+  onClick(markerCoords, infoWindowId) {
+    this.fixated = true;
+    this.openedInfoWindowId = infoWindowId;
     this.lat = markerCoords.latitude;
     this.lng = markerCoords.longitude;
   }
 
-  mouseOver(locationName) {
-    // console.log(locationName);
+  mouseOver(infoWindow) {
+    infoWindow.open();
+  }
+
+  mouseOut(infoWindow) {
+    if (!this.fixated || infoWindow._id != this.openedInfoWindowId) {
+      infoWindow.close();
+    }
   }
 
 }
