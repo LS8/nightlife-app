@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
   selector: 'app-home',
@@ -11,6 +12,7 @@ export class HomeComponent implements OnInit {
   private searchTerm: string;
 
   constructor(
+    private flashMsg: FlashMessagesService,
     private router: Router
   ) { }
 
@@ -19,16 +21,11 @@ export class HomeComponent implements OnInit {
 
   onSearch() {
     if (!this.searchTerm || !this.searchTerm.trim().length) {
-      // display flash message to please enter something
       this.searchTerm = '';
-      console.log('please enter somth');
+      return this.flashMsg.show('Please enter something', { cssClass: 'notification is-danger' });
     } else {
       this.router.navigate([`location/${this.searchTerm}`]);
     }
-    // this.barService.getBarByLocation('hannover')
-    //   .subscribe(data => {
-    //     console.log(data);
-    //   })
   }
 
 }
