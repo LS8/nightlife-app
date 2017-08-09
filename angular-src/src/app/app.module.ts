@@ -12,10 +12,10 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { RegisterComponent } from './components/register/register.component';
-import { ProfileComponent } from './components/profile/profile.component';
 import { LocationComponent } from './components/location/location.component';
 import { MapComponent } from './components/map/map.component';
 import { LocationListitemComponent } from './components/location-listitem/location-listitem.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
@@ -30,10 +30,10 @@ import { LoggedOutGuard } from './guards/logged-out.guard';
     LoginComponent,
     HomeComponent,
     RegisterComponent,
-    ProfileComponent,
     LocationComponent,
     MapComponent,
-    LocationListitemComponent
+    LocationListitemComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
