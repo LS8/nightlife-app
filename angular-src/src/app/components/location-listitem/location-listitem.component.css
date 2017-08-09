@@ -26,3 +26,54 @@ article
     flex-basis: 100%;
   }
 }
+
+.attend-button {
+  color: rgb(0, 209, 178);
+}
+
+.attend-button:hover {
+  color: teal;  
+}
+
+.remove-button {
+  color: #ff6e40;
+}
+
+.remove-button:hover {
+  color: #ff3d00;
+}
+
+.attend-button,
+.remove-button {
+  font-size: 18px;
+  cursor: pointer;
+  transition: 200ms linear;
+}
+
+
+
+.guest-counter--outer {
+  color: #ff6e40;
+  font-weight: bold;
+  cursor: pointer;
+}
+.guest-wrapper:hover .guests {
+  opacity: 1;
+}
+
+.guests {
+  opacity: 0;
+  transition: 200ms linear;
+}
+.guests {
+  cursor: default;
+}
+
+/* .guest-counter--inner { */
+/*   text-decoration: underline; */
+/* } */
+
+.disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}

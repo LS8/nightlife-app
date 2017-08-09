@@ -6,24 +6,33 @@
   </figure>
   <div class="media-content column is-8">
     <div class="content">
-      <p>
-        <strong>{{location.name}}</strong> <small>{{location.phone}}</small>
-        <br>
-        Lorem ipsum dolor sem. Etiam finibus odio quis feugiat facilisis.
-      </p>
-    </div>
-    <nav class="level is-mobile">
-      <div class="level-left">
-        <a class="level-item">
-          <span class="icon is-small"><i class="fa fa-reply"></i></span>
-        </a>
-        <a class="level-item">
-          <span class="icon is-small"><i class="fa fa-retweet"></i></span>
-        </a>
-        <a class="level-item">
-          <span class="icon is-small"><i class="fa fa-heart"></i></span>
-        </a>
+      <strong>{{index+1}}. {{location.name}} </strong>
+      <span class="icon">
+        <i *ngIf="!alreadyVoted" [ngClass]="userLoggedIn ? 'active' : 'disabled'" (click)="addUserToBar()" class="attend-button fa fa-plus-circle"></i>
+        <i *ngIf="alreadyVoted" (click)="removeUserFromBar()" class="remove-button fa fa-minus-circle"></i>
+      </span>
+      <span class="guest-wrapper" > <small class="guest-counter--outer" >(<u><span *ngIf="location.attendees">{{location.attendees.length}}</span> going</u>)</small>
+<span *ngIf="location.attendees && location.attendees.length" class="tag guests is-primary">
+  {{location.attendees.join(", ")}}
+</span>
+</span>
+
+      <br>
+      <small> view on yelp.com </small><span class="icon is-small"><i class="fa fa-external-link"></i></span>
+      <br>
+      <br>
+      <div class="columns">
+        <div class="column is-6">
+          <span class="icon is-small"><i class="fa fa-phone"></i></span> <small>{{location.phone}}</small>
+          <br>
+          <span class="icon is-small"><i class="fa fa-map-marker"></i></span> <small>{{location.location.address1}}</small>
+        </div>
+        <div class="column is-6">
+          <small>Rating: {{location.rating}}</small>
+          <br>
+          <small>Price Range: {{location.price}}</small>
+        </div>
       </div>
-    </nav>
+    </div>
   </div>
 </article>  
