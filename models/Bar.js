@@ -29,7 +29,18 @@ module.exports.addUserToBar = function (barId, username, callback) {
   Bar.findOne({ barId: barId }, (err, bar) => {
     if (err) {
       throw err;
-    } else {
+    } else if (!bar) {
+      let bar = new Bar({barId: barId, attendees: []});
+      bar.attendees.push(username);
+      bar.save((err, bar) => {
+        if (err) {
+          throw err;
+        } else if (bar) {
+          // bar.attendees.push(username);
+          bar.save(callback);
+        }
+      });
+    } else if (bar) {
       bar.attendees.push(username);
       bar.save(callback);
     }
