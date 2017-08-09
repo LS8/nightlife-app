@@ -1,4 +1,3 @@
-// const Bar = require('../../models/Bar');
 const request = require('request');
 const yelpAuthToken = require ('../../secrets.js').yelpToken;
 
@@ -22,5 +21,5 @@ module.exports = (req, res) => {
     } else {
       res.json({ success: false, msg: 'Error while querying Yelp', info: body });
     }
-  })
+  });
 };
