@@ -25,4 +25,5 @@ export class UserService {
     return this.http.post(`${this.url}/attend`, { headers: headers })
       .map(res => res.json());
   }
+
 }
