@@ -15,9 +15,6 @@
       </a>
     </div>
     <div class="navbar-end">
-      <a *ngIf="auth.loggedIn()" class="navbar-item" routerLink="/profile" routerLinkActive="link-active" [routerLinkActiveOptions]="{exact: true}">
-        Profile
-      </a>
       <a *ngIf="!auth.loggedIn()" class="navbar-item" routerLink="/login" routerLinkActive="link-active" [routerLinkActiveOptions]="{exact: true}">
         Login
       </a>
