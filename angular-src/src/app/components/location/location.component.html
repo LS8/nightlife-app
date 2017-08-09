@@ -2,8 +2,8 @@
 <div *ngIf="loaded" class="columns">
   <div class="column">
     <ul>
-      <li *ngFor="let location of locations">
-        <app-location-listitem [location]="location"></app-location-listitem>
+      <li *ngFor="let location of locations; let i = index">
+        <app-location-listitem [location]="location" [index]="i"></app-location-listitem>
       </li>
     </ul>
   </div>
