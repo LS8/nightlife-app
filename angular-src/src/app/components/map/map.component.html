@@ -6,6 +6,7 @@
         (markerClick)="onClick(location.coordinates, infoWindow._id)"
         (mouseOver)="mouseOver(infoWindow)"
         (mouseOut)="mouseOut(infoWindow)"
+        [label]="(i+1).toString()"
         [latitude]="location.coordinates.latitude"
         [longitude]="location.coordinates.longitude"
         (markerClick)="gm.lastOpen?.close(); gm.lastOpen = infoWindow">
