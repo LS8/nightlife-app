@@ -10,7 +10,8 @@ const removeUserFromBar = require('../controllers/bar/removeUserFromBar');
 
 Router.get('/location/:location', byLocation);
 Router.post('/', addBar);
-Router.get('/:barId', getAttendees);
+// Router.get('/:barId', getAttendees);
+Router.post('/attendees', getAttendees);
 Router.post('/attend', addUserToBar);
 Router.put('/cancel', removeUserFromBar);
 
