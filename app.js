@@ -7,11 +7,13 @@ const cors = require('cors');
 const bodyparser = require('body-parser');
 const mongoose = require('mongoose');
 
+const mongoUrl = require('./secrets').mongolab_uri || process.env.MONGOLAB_URI;
+
 app.use(bodyparser.json());
 app.use(cors());
 
 // Connect To Database
-mongoose.connect('mongodb://localhost:27017/nightlife', { useMongoClient: true });
+mongoose.connect(mongoUrl, { useMongoClient: true });
 // On Connection
 mongoose.connection.on('connected', () => {
   console.log(`Connected to database`);
