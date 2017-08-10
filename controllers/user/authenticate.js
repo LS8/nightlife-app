@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const User = require('../../models/User');
-const secret = require('../../secrets').authSecret;
+const secret = process.env.AUTH_SECRET || require('../../secrets').authSecret;
 
 module.exports = (req, res) => {
   const username = req.body.username;

@@ -1,5 +1,5 @@
 const request = require('request');
-const yelpAuthToken = require ('../../secrets.js').yelpToken || process.env.YELP_TOKEN;
+const yelpAuthToken = process.env.YELP_TOKEN || require ('../../secrets.js').yelpToken;
 
 module.exports = (req, res) => {
   const location = req.params.location;

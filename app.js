@@ -8,7 +8,7 @@ const bodyparser = require('body-parser');
 const mongoose = require('mongoose');
 const path = require('path');
 
-const mongoUrl = require('./secrets').mongolab_uri || process.env.MONGOLAB_URI;
+const mongoUrl = process.env.MONGOLAB_URI || require('./secrets').mongolab_uri;
 
 app.use(bodyparser.json());
 app.use(cors());
