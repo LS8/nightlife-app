@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class BarService {
-  private url: string = 'http://localhost:8080/api/bar';
+  private url: string = '/api/bar';
 
   constructor(
     private http: Http

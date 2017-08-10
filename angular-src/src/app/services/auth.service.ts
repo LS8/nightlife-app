@@ -9,7 +9,7 @@ export class AuthService {
   // private user: Object;
   private token;
   private headers: Headers = new Headers({ 'Content-Type': 'application/json' });
-  private authUrl: string = 'http://localhost:8080/api/user';
+  private authUrl: string = '/api/user';
 
   constructor(
     private http: Http
