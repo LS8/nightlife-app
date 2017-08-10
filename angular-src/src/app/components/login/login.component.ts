@@ -16,6 +16,7 @@ export class LoginComponent {
 
   constructor(
     private flashMsg: FlashMessagesService,
+    private location: Location,
     private auth: AuthService,
     private router: Router,
   ) { }
@@ -49,7 +50,6 @@ export class LoginComponent {
         // Login allowed
         if (data.success && data.status === 0) {
           this.auth.storeToken(data.token, data.user);
-          return this.router.navigate(['/']);
           return this.location.back();
         } else {
           this.flashMsg.show('Error', { cssClass: 'notification is-danger' });
