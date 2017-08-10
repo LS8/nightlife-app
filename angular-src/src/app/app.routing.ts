@@ -27,6 +27,10 @@ const routes: Routes = [
   {
     path: 'location/:location',
     component: LocationComponent
+  },
+  {
+    path: '**',
+    redirectTo: ''
   }
 ];
 
