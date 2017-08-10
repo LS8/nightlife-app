@@ -1,6 +1,6 @@
 .hero {
   position: relative;
-  height: 80vh;
+  height: calc(100vh - 104px);
   z-index: 1;
 }
 /* .container { */

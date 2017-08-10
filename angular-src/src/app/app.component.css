@@ -1,0 +1,7 @@
+.footer {
+  padding: 0;
+  text-align: center;
+}
+.main-content {
+  height: calc(100vh - 52px);
+}
