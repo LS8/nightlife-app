@@ -6,6 +6,7 @@ const passport = require('passport');
 const cors = require('cors');
 const bodyparser = require('body-parser');
 const mongoose = require('mongoose');
+const path = require('path');
 
 const mongoUrl = require('./secrets').mongolab_uri || process.env.MONGOLAB_URI;
 
@@ -22,6 +23,9 @@ mongoose.connection.on('connected', () => {
 mongoose.connection.on('error', (err) => {
   console.log(`Database error: ${err}`);
 });
+
+// Set Static Folder
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Passport Middleware
 app.use(passport.initialize());
