@@ -12,7 +12,7 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 })
 export class LocationListitemComponent implements OnInit {
   private userLoggedIn: boolean;
-  private alreadyVoted: boolean;
+  public alreadyVoted: boolean;
 
   constructor(
     private flashMsg: FlashMessagesService,
@@ -27,7 +27,7 @@ export class LocationListitemComponent implements OnInit {
 
   }
 
-  @Input() location: object;
+  @Input() location: any;
   @Input() index: number;
 
   removeUserFromBar() {

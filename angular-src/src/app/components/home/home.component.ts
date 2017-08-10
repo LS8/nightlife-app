@@ -9,7 +9,7 @@ import { FlashMessagesService } from 'angular2-flash-messages';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  private searchTerm: string;
+  public searchTerm: string;
 
   constructor(
     private flashMsg: FlashMessagesService,

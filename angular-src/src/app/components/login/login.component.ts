@@ -11,8 +11,8 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  private username: string;
-  private password: string;
+  public username: string;
+  public password: string;
 
   constructor(
     private flashMsg: FlashMessagesService,

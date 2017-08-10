@@ -10,9 +10,9 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  private username: string;
-  private password1: string;
-  private password2: string;
+  public username: string;
+  public password1: string;
+  public password2: string;
 
   constructor(
     private flashMsg: FlashMessagesService,

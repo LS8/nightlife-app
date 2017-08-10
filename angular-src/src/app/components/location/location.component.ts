@@ -12,7 +12,7 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 })
 export class LocationComponent implements OnInit {
   private locations: object[];
-  private loaded: boolean = false;
+  public loaded: boolean = false;
   private region;
 
   constructor(
